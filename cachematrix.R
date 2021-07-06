@@ -1,25 +1,30 @@
-##The "makeCacheMatrix" allows is to set and get the said value of the matrix or to set the inverse value of the matrix
-makeCacheMatrix <- function(x = matrix()) {   #This functions allows you to get the valie
- inv <- NULL
+#Comment above and at the sides are descriptions or explanations about what the functions do
+#These encoded funtions are inorder to accomplish my R:Programming assignment
+##The "makeCacheMatrix" allows is to set and get the said value of the matrix or to set the mean value of the matrix
+makeCacheMatrix <- function(x = matrix()){          #This functions allows you to get the value
+  t <- NULL                                         #In this part I let "t" be the "NULL"
   set <- function(y){
     x <<- y
-    inv <<- NULL
+    t <<- NULL
   }
-  get <- function() {x}    #this is where we will get the matrix's value
-  setInverse <- function(inverse) {inv <<- inverse}               #setting the value of inverse
-  getInverse <- function() {inv}                                  #getting the value of inverse
-  list(set = set, get = get, setInverse = setInverse, getInverse = getInverse)
+  get <- function() x    #this is where we will get the matrix's value
+  setT <- function(mean) {t <<- mean}               #setting the value of mean
+  getT <- function() t                                  #getting the value of mean
+  list(set = set, get = get, setT = setT, getT = getT)
 }
 
-# This function is used to get the cached data
-cacheSolve <- function(x, ...) {   #This is the function the gets the cached data
-         inv <- x$getInverse()
-  if(!is.null(inv)){
-    message("getting cached data")
-    return(inv)
+
+#Comment above and at the sides are descriptions or explanations about what the functions do
+# This function is used to do the cachesolve
+cacheSolve <- function(x,  ...){    #If it (matrix) didn't alter then this function will reclaim or retrieve the mean          
+  t <- x$getmean()
+  if(!is.null(t)){
+    message("we are getting cached data...")
+    return(t)
   }
-  mat <- x$get()
-  inv <- solve(mat, ...)
-  x$setInverse(inv)
-  inv
+  matrx <- x$get()
+  t <- solve(matrx, ...)  
+  x$setT(t)
+  t
 }
+  
