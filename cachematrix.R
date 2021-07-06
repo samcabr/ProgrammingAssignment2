@@ -1,6 +1,5 @@
-
-##The "makeCacheMatrix" allows is to set and get the said vale of the matrix or to set the inverse value of the matrix
-makeCacheMatrix <- function(x = matrix()) {
+##The "makeCacheMatrix" allows is to set and get the said value of the matrix or to set the inverse value of the matrix
+makeCacheMatrix <- function(x = matrix()) {   #This functions allows you to get the valie
  inv <- NULL
   set <- function(y){
     x <<- y
@@ -13,7 +12,7 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 # This function is used to get the cached data
-cacheSolve <- function(x, ...) {
+cacheSolve <- function(x, ...) {   #This is the function the gets the cached data
          inv <- x$getInverse()
   if(!is.null(inv)){
     message("getting cached data")
