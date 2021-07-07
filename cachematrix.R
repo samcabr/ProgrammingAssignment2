@@ -8,7 +8,7 @@ makeCacheMatrix <- function(x = matrix()){          #This functions allows you t
     t <<- NULL
   }
   get <- function() x    #this is where we will get the matrix's mean
-  setT <- function(mean) {t <<- mean}               #setting the mean
+  setT <- function(mean)    t <<- mean              #setting the mean
   getT <- function() t                                  #getting the mean
   list(set = set, get = get, setT = setT, getT = getT)
 }
